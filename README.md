@@ -40,6 +40,11 @@ L'outil décrit ce que montrent les chiffres. Il ne dit pas ce qu'il faudrait en
 | `commentaires.csv` | élément de commentaire | détail chiffré et texte des « renseignements complémentaires » |
 | `resultats.csv` | série | résultat officiel, opérations extraordinaires, résultat recalculé et contrôle |
 | `controles.csv` | contrôle | 185 contrôles croisés avec les totaux officiels de chaque brochure |
+| `dette_indicateurs.csv` | année (2017-2025) | emprunts, intérêts, taux, fortune nette, résultats, degré d'autofinancement, taux d'endettement net (comptes 2025) |
+| `dette_bilan.csv` | année et compte | postes principaux du bilan (liquidités, prêts, emprunts 2063, part à court terme 2014, capital propre…) |
+| `dette_flux.csv` | année et ligne | tableau des flux de trésorerie 2018-2025 (FTO, FTI, FTF, variation des liquidités) |
+| `dette_objets.csv` | objet d'investissement et année | dépenses nettes réalisées et budget, par objet, d'après les comptes 2018-2025 |
+| `dette_controles.csv` | contrôle | contrôles croisés des chiffres de la dette (bilan équilibré, flux, somme des objets par département) |
 | `retraitements.csv` | service et budget | différences entre un budget et sa reprise dans la brochure suivante |
 | `annexes_totaux.csv` | institution et année | charges, revenus et résultat du CHUV, de l'UNIL, de la HEP, de la HEIG-VD, de l'ECAL et de HESAV |
 | `annexes_lignes.csv` | ligne d'annexe | détail du compte d'exploitation de chaque institution, par brochure |

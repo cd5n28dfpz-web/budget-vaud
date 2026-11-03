@@ -129,3 +129,25 @@ class TestCommentaires(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestDette(unittest.TestCase):
+    def test_controles_dette(self):
+        lignes = lire("dette_controles.csv")
+        self.assertGreater(len(lignes), 200)
+        echecs = [l for l in lignes if l["ok"] != "1" and l["bloquant"] == "1"]
+        self.assertEqual(echecs, [], "contrôles en échec : voir data/dette_controles.csv")
+
+    def test_emprunts_2025(self):
+        ind = {l["annee"]: l for l in lire("dette_indicateurs.csv")}
+        self.assertEqual(float(ind["2025"]["emprunts"]), 500.0)
+        self.assertEqual(float(ind["2025"]["interets"]), 10.0)
+        self.assertEqual(float(ind["2025"]["fortune_fin"]), 2099.0)
+
+    def test_objets_somment_au_flux(self):
+        flux = {(l["annee"], l["ligne"]): float(l["montant_chf"]) for l in lire("dette_flux.csv")}
+        som = defaultdict(float)
+        for l in lire("dette_objets.csv"):
+            som[l["annee"]] += float(l["depenses_nettes_chf"])
+        for a in map(str, range(2018, 2026)):
+            self.assertAlmostEqual(som[a], -flux[(a, "depenses_nettes_bi")], delta=4000, msg=a)

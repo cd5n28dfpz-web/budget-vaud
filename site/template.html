@@ -316,6 +316,7 @@ table.mini tr[data-i]{cursor:pointer} table.mini tr[data-i]:hover{background:var
     <button class="tab" role="tab" id="t-in" aria-selected="false" aria-controls="p-in">Institutions</button>
     <button class="tab" role="tab" id="t-sv" aria-selected="false" aria-controls="p-sv">Fiche service</button>
     <button class="tab" role="tab" id="t-ec" aria-selected="false" aria-controls="p-ec">Économies et investissements</button>
+    <button class="tab" role="tab" id="t-de" aria-selected="false" aria-controls="p-de" hidden>Dette et comptes</button>
     <button class="tab" role="tab" id="t-am" aria-selected="false" aria-controls="p-am" hidden>Amendements 2027</button>
   </nav>
 
@@ -495,6 +496,20 @@ table.mini tr[data-i]{cursor:pointer} table.mini tr[data-i]:hover{background:var
       <p class="note" id="ivInfo"></p></div>
   </section>
 
+  <!-- DETTE ET COMPTES -->
+  <section class="panel" id="p-de" role="tabpanel" aria-labelledby="t-de" hidden>
+    <p class="lede" id="deLede"></p>
+    <div class="kpis" id="deKpi"></div>
+    <div class="sec card"><div class="sec-h"><h2>Emprunts et fortune nette</h2><p>En millions de francs, au 31 décembre</p></div><div class="chartbox" id="deC1"></div></div>
+    <div class="sec card"><div class="sec-h"><h2>Emprunts, intérêts et indicateurs financiers</h2><p>Tableau « évolution de la fortune nette, indicateurs financiers et évolution de la dette » des comptes 2025</p></div><div class="tblwrap"><table class="data" id="deTbl"><thead></thead><tbody></tbody></table></div><p class="note" id="deTblNote"></p></div>
+    <div class="sec card"><div class="sec-h"><h2>Flux de trésorerie</h2><p>Tableau des flux de trésorerie de chaque année, en millions de francs ( + : source de fonds, − : emploi de fonds)</p></div><div class="tblwrap"><table class="data" id="deFx"><thead></thead><tbody></tbody></table></div><div class="chartbox sec" id="deC2"></div><p class="note" id="deFxNote"></p></div>
+    <div class="sec card"><div class="sec-h"><h2>Investissements : comptes et budget</h2><p>Dépenses nettes du budget d'investissement, en millions de francs</p></div><div class="hbars" id="deInv"></div><p class="note" id="deInvNote"></p></div>
+    <div class="sec card"><div class="sec-h"><h2>Objets d'investissement de l'année</h2><p>Dépenses nettes réalisées, par objet</p></div>
+      <div class="controls"><select id="deYear" aria-label="Année des comptes"></select></div>
+      <div class="tblwrap"><table class="data" id="deObj"><thead></thead><tbody></tbody></table></div><p class="note" id="deObjNote"></p></div>
+    <div class="sec card prose" id="deNotes"></div>
+  </section>
+
   <section class="panel" id="p-am" role="tabpanel" aria-labelledby="t-am" hidden>
     <p class="lede" id="amLede"></p>
     <div class="kpis" id="amKpi"></div>
@@ -614,7 +629,7 @@ function openTab(id){curTab=id;try{if(window.goatcounter&&window.goatcounter.cou
   $("#yearbar").hidden=(id==="t-bc"||id==="t-an"||id==="t-in"||id==="t-gu"||id==="t-am");if($("#cmpNote"))$("#cmpNote").hidden=$("#yearbar").hidden||!$("#cmpNote").textContent;renderTab()}
 tabs.forEach(t=>t.addEventListener("click",()=>openTab(t.id)));
 function segInit(id,cb){const el=$(id);el.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;el.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));cb(b.dataset.v)})}
-function renderTab(){({"t-ac":drawHome,"t-gu":()=>{},"t-ov":drawOverview,"t-ex":drawTM,"t-se":runSearch,"t-ev":drawEv,"t-bc":drawBC,"t-an":drawAnalyses,"t-bf":drawBenef,"t-in":drawInst,"t-sv":()=>renderSvc($("#svSel").value),"t-ec":drawEco,"t-am":drawAm})[curTab]()}
+function renderTab(){({"t-ac":drawHome,"t-gu":()=>{},"t-ov":drawOverview,"t-ex":drawTM,"t-se":runSearch,"t-ev":drawEv,"t-bc":drawBC,"t-an":drawAnalyses,"t-bf":drawBenef,"t-in":drawInst,"t-sv":()=>renderSvc($("#svSel").value),"t-ec":drawEco,"t-de":drawDe,"t-am":drawAm})[curTab]()}
 
 // ---------- year selectors ----------
 const ORDER=[...SER.filter(s=>s[0]==="B").reverse(),...SER.filter(s=>s[0]==="C").reverse()];
@@ -1326,6 +1341,60 @@ function drawEco(){drawInvTrack();
   const sd={};Object.entries(D.sav).forEach(([k,v])=>{const d=SVC[k.split("|")[0]].dept;sd[d]=(sd[d]||0)+v});$("#savDept").innerHTML=bars(sd);
   const mm={};Object.entries(D.meas).forEach(([svc,arr])=>arr.forEach(([m,v])=>{if(/LAFin/.test(m))return;mm[m]=mm[m]||{v:0,s:new Set()};mm[m].v+=v;mm[m].s.add(svc)}));
   $("#savList").innerHTML=Object.entries(mm).sort((a,b)=>b[1].v-a[1].v).slice(0,14).map(([m,o])=>`<li><span>${esc(m)}<span class="code" style="display:block">${[...o.s].map(c=>esc(SVC[c].name)).join(" · ")}</span></span><span>${short(o.v)}</span></li>`).join("")}
+
+// ---------- Dette et comptes ----------
+const DE=D.dette||null;
+if(DE){$("#t-de").hidden=false}
+const deM=v=>v===null||v===undefined?"–":(v<0?"−":"")+dec(Math.abs(v)/1e6,1);
+const deM0=v=>v===null||v===undefined?"–":(v<0?"−":"")+grp(Math.abs(v)/1e6);
+let deInit=false;
+function drawDe(){if(!DE)return;
+  const A=DE.annees,I=DE.ind,n=A.length-1,L=A[n],last=k=>I[k][n];
+  const bi=DE.bilan_annees.indexOf(L);
+  $("#deLede").textContent=`Ce que disent les comptes de l'État de ${DE.flux_annees[0]} à ${DE.flux_annees[DE.flux_annees.length-1]} sur la dette, la fortune, la trésorerie et les investissements réalisés. Les chiffres sont recopiés tels que publiés dans les brochures des comptes, sans interprétation.`;
+  const liq=DE.liquidites[bi];
+  $("#deKpi").innerHTML=[["Emprunts",dec(last("emprunts"),0)+" mio","au 31 décembre "+L+", taux moyen "+dec(last("taux_interet"),1)+" %"],
+   ["Intérêts des emprunts",dec(last("interets"),1)+" mio","en "+L],
+   ["Fortune nette",(last("fortune_fin")>=0?"+":"−")+grp(Math.abs(last("fortune_fin")))+" mio","au 31 décembre "+L],
+   ["Taux d'endettement net",dec(last("taux_endettement_net"),1)+" %","négatif = fortune nette (pas de dette nette)"],
+   ["Liquidités",grp(Math.round(liq/1e6))+" mio","caisse, poste et banques au 31 décembre "+L]].map(x=>`<div class="kpi"><div class="k">${x[0]}</div><div class="v num">${x[1]}</div><div class="s">${x[2]}</div></div>`).join("");
+  const mk=(k,sc)=>A.map((a,i)=>[a,I[k][i]]);
+  $("#deC1").innerHTML=lineChart([{name:"Fortune nette",color:css("--s1"),pts:mk("fortune_fin")},{name:"Emprunts",color:css("--s2"),pts:mk("emprunts")}],{h:300,r:150,yfmt:v=>grp(v),tfmt:v=>grp(v)+" mio",ydom:[0,Math.max(...I.fortune_fin)],label:"Fortune nette et emprunts de l'État de Vaud"});
+  // tableau des indicateurs
+  const rows=[["Emprunts au 31 décembre (mio)","emprunts",v=>dec(v,1)],["Intérêts des emprunts (mio)","interets",v=>dec(v,1)],["Intérêts en % des emprunts","taux_interet",v=>dec(v,1)],
+   ["Fortune nette au 31 décembre (mio)","fortune_fin",v=>(v>=0?"+ ":"− ")+grp(Math.abs(v))],["Résultat de l'exercice (mio)","resultat",v=>(v>=0?"+ ":"− ")+dec(Math.abs(v),1)],
+   ["dont résultat opérationnel (mio)","resultat_operationnel",v=>(v>=0?"+ ":"− ")+dec(Math.abs(v),1)],["dont résultat extraordinaire (mio)","resultat_extraordinaire",v=>(v>=0?"+ ":"− ")+dec(Math.abs(v),1)],
+   ["Degré d'autofinancement (%)","degre_autofinancement",v=>dec(v,1)],["Taux d'endettement net (%)","taux_endettement_net",v=>(v<0?"− ":"")+dec(Math.abs(v),1)],["Part des charges d'intérêts (%)","part_interets",v=>(v<0?"− ":"")+dec(Math.abs(v),1)]];
+  $("#deTbl thead").innerHTML=`<tr><th>${""}</th>${A.map(a=>`<th class="r">${a}</th>`).join("")}</tr>`;
+  $("#deTbl tbody").innerHTML=rows.map(([t,k,f])=>`<tr style="cursor:default"><td>${t}</td>${A.map((a,i)=>`<td class="r">${f(I[k][i])}</td>`).join("")}</tr>`).join("");
+  $("#deTblNote").innerHTML=`Un taux d'endettement net négatif signifie que l'État a une fortune nette plutôt qu'une dette nette. Le total des emprunts du tableau peut inclure une part inscrite à court terme au bilan (compte 2014) lorsqu'un emprunt arrive à échéance dans l'année suivante : par exemple 200 millions au 31 décembre 2023 pour l'emprunt échu le 18 décembre 2024. Ce ne sont pas les mêmes montants que le compte 2063 « Emprunts » du bilan, qui ne contient que la part à long terme.`;
+  // flux
+  const FA=DE.flux_annees,F=DE.flux;
+  const fr=[["Résultat de l'exercice","resultat"],["+ Amortissements du patrimoine administratif","amortissements"],["Flux de l'activité opérationnelle [FTO]","fto"],["Dépenses d'investissements nettes (budget d'investissement)","depenses_nettes_bi"],["Prêts conditionnellement remboursables","prets_conditionnels"],["Crédits d'inventaire","credits_inventaire"],["Flux des investissements dans le PA [FTI]","fti"],["Flux d'investissements et de placements [FTI+P]","fti_p"],["Flux de financement [FTF]","ftf"],["Variation des liquidités","variation_liquidites"]];
+  $("#deFx thead").innerHTML=`<tr><th></th>${FA.map(a=>`<th class="r">${a}</th>`).join("")}</tr>`;
+  $("#deFx tbody").innerHTML=fr.map(([t,k])=>{const b=/^Flux|^Variation/.test(t);return `<tr style="cursor:default"><td>${b?"<b>"+t+"</b>":t}</td>${FA.map((a,i)=>`<td class="r">${b?"<b>"+deM0(F[k][i])+"</b>":deM0(F[k][i])}</td>`).join("")}</tr>`}).join("");
+  const bY=DE.bilan_annees,lq=bY.map((a,i)=>[a,DE.liquidites[i]/1e6]);
+  $("#deC2").innerHTML=`<div class="sec-h" style="margin-top:6px"><h2 style="font-size:16px">Liquidités au 31 décembre</h2><p>Caisse, poste et banques, en millions de francs</p></div>`+lineChart([{name:"Liquidités",color:css("--s1"),pts:lq}],{h:230,r:110,yfmt:v=>grp(v),tfmt:v=>grp(v)+" mio",label:"Liquidités de l'État de Vaud"});
+  $("#deFxNote").innerHTML=`Le flux de financement [FTF] est celui que publient les comptes : il ne se réduit pas aux emprunts émis ou remboursés. En 2025 il vaut +415 mio alors que les emprunts sont restés à 500 mio : il correspond à la diminution des placements financiers à court terme. Les placements à court terme du patrimoine financier ne font pas partie des liquidités ci-dessus.`;
+  // investissements
+  const IY=DE.flux_annees,mx=Math.max(...IY.map(a=>Math.max(DE.tot_objets[a],DE.tot_budget[a])));
+  $("#deInv").innerHTML=IY.map(a=>{const c=DE.tot_objets[a],b=DE.tot_budget[a];return `<div class="hbar tipm" data-tip="${esc(`<b>${a}</b><div class="row"><span>Comptes</span><span>${chf(c)}</span></div><div class="row"><span>Budget</span><span>${chf(b)}</span></div><div class="row"><span>Réalisé / budget</span><span>${dec(c/b*100,0)} %</span></div>`)}"><span>${a}</span><div class="t"><i style="width:${c/mx*100}%;background:${css("--s1")}"></i></div><span class="v">${deM(c)} <span style="color:var(--muted)">/ budget ${deM(b)}</span></span></div>`}).join("");
+  $("#deInvNote").innerHTML=`Barres : dépenses nettes des objets du budget d'investissement dans les comptes ; entre parenthèses, le montant inscrit au budget de la même année. Les comptes ne rattachent aucun emprunt à un objet d'investissement : un emprunt finance l'ensemble des besoins de trésorerie de l'État.`;
+  if(!deInit){deInit=true;const ys=[...DE.flux_annees].reverse();$("#deYear").innerHTML=ys.map(y=>`<option value="${y}">Comptes ${y}</option>`).join("");$("#deYear").addEventListener("change",drawDeObj)}
+  drawDeObj();
+  $("#deNotes").innerHTML=`<h3>Sources et réserves</h3><ul>
+   <li>Brochures des comptes de l'État de Vaud ${DE.brochures[0]} à ${DE.brochures[DE.brochures.length-1]} (bilan, tableau des flux de trésorerie, « Dépenses et recettes d'investissements de l'exercice », « Evolution de la fortune nette, indicateurs financiers et évolution de la dette »).</li>
+   <li>Les années ${A[0]} à ${A[A.length-1]} du tableau d'évolution viennent de la brochure ${L}. Les autres chiffres de chaque année viennent de la brochure de cette année.</li>
+   ${DE.erratum_chuv_2024?`<li>Erratum 2024 : une erreur de comptabilisation de 3,17 mio concerne uniquement les comptes du CHUV (pages 347 à 352 de la brochure 2024). L'erratum précise qu'elle ne modifie pas les comptes de l'État, donc ni la dette ni les investissements présentés ici.</li>`:""}
+   <li>Certains chiffres du bilan sont retraités dans la brochure suivante (par exemple les immobilisations corporelles 2021 ou les engagements courants 2023). Le site conserve le chiffre de la brochure de l'année concernée.</li>
+   <li>Écart de 3 400 francs publié dans les comptes 2021 entre le tableau des flux de trésorerie et le total des dépenses d'investissement nettes ; le site reprend les deux montants tels quels.</li>
+   <li>Les contrôles (équilibre du bilan, flux de trésorerie, somme des objets par département) sont dans <code>data/dette_controles.csv</code>.</li></ul>`;
+}
+function drawDeObj(){const y=+$("#deYear").value;const O=DE.objets;const rows=O.lignes.filter(r=>r[0]===y&&(r[4]||r[5])).sort((a,b)=>b[4]-a[4]);
+  const tot=rows.reduce((t,r)=>t+r[4],0);
+  $("#deObj thead").innerHTML=`<tr><th>Objet</th><th class="r">Dépenses nettes ${y}</th><th class="r">Budget ${y}</th><th class="r">Part</th></tr>`;
+  $("#deObj tbody").innerHTML=rows.slice(0,40).map(r=>`<tr style="cursor:default"><td>${esc(r[3])}<div class="code">${esc(r[1])} · ${esc(r[2])}</div></td><td class="r">${short(r[4])}</td><td class="r">${r[5]?short(r[5]):"–"}</td><td class="r">${tot?dec(r[4]/tot*100,1)+" %":""}</td></tr>`).join("");
+  $("#deObjNote").textContent=`${rows.length} objets ont des dépenses ou un budget en ${y} ; les 40 plus importants sont affichés. Total des dépenses nettes : ${chf(tot)}. Un objet est un crédit voté (décret) : il peut s'étendre sur plusieurs années, et ce tableau ne montre que l'année choisie.`}
 
 // ---------- Amendements 2027 ----------
 const AM=D.amend?D.amend.lignes.map(r=>Object.fromEntries(D.amend.cles.map((k,i)=>[k,r[i]]))):[];

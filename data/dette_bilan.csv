@@ -1,0 +1,261 @@
+annee,code,libelle,montant_chf
+2017,10,Patrimoine financier,6538842814.1
+2017,100,Disponibilités et placements à court terme,3255094743.53
+2017,1000,Caisse,1075385.31
+2017,1001,Poste,527557090.9
+2017,1002,Banques,2575512836.91
+2017,1003,Placements à court terme,150000000.0
+2017,1009,Autres disponibilités,949430.41
+2017,101,Créances,2431647309.65
+2017,107,Placements financiers à long terme,180646629.39
+2017,14,Patrimoine administratif,1719891407.61
+2017,140,Immobilisations corporelles du PA,1229661550.05
+2017,142,Immobilisations incorporelles du PA,-22524.91
+2017,144,Prêts,362264716.92
+2017,145,"Participations, capital social",9011975.0
+2017,146,Subventions d'investissements,118975690.55
+2017,20,Capitaux de tiers,5430033592.69
+2017,200,Engagements courants,1611895142.43
+2017,201,Engagements financiers à court terme,164385109.38
+2017,206,Engagements financiers à long terme,1487548950.2
+2017,2063,Emprunts,975000000.0
+2017,2014,Part à court terme d'engagements à long terme,0.0
+2017,2064,"Prêts, reconnaissances de dettes",4810250.2
+2017,2069,Autres engagements financiers à long terme,507738700.0
+2017,209,Engagements financements spéciaux et fonds,15679020.98
+2017,29,Capital propre,2828700629.02
+2017,293,Préfinancements,708320485.44
+2017,298,Autres capitaux propres,256000000.0
+2017,299,Excédent / découvert (-) du bilan,1670913521.8
+2018,10,Patrimoine financier,7270372823.67
+2018,100,Disponibilités et placements à court terme,3645895224.49
+2018,1000,Caisse,1144723.31
+2018,1001,Poste,480232905.13
+2018,1002,Banques,3063597200.79
+2018,1003,Placements à court terme,100000000.0
+2018,1009,Autres disponibilités,920395.26
+2018,101,Créances,2716477924.01
+2018,107,Placements financiers à long terme,179913857.76
+2018,14,Patrimoine administratif,1575531545.11
+2018,140,Immobilisations corporelles du PA,1101472700.71
+2018,142,Immobilisations incorporelles du PA,-13562.78
+2018,144,Prêts,348946843.47
+2018,145,"Participations, capital social",9011975.0
+2018,146,Subventions d'investissements,116113588.71
+2018,20,Capitaux de tiers,5791419437.48
+2018,200,Engagements courants,1912888445.93
+2018,201,Engagements financiers à court terme,495195221.65
+2018,206,Engagements financiers à long terme,978888102.25
+2018,2063,Emprunts,975000000.0
+2018,2014,Part à court terme d'engagements à long terme,319050766.1
+2018,2064,"Prêts, reconnaissances de dettes",3149402.25
+2018,2069,Autres engagements financiers à long terme,738700.0
+2018,209,Engagements financements spéciaux et fonds,20849304.67
+2018,29,Capital propre,3054484931.3
+2018,293,Préfinancements,751320901.56
+2018,298,Autres capitaux propres,256000000.0
+2018,299,Excédent / découvert (-) du bilan,1857035837.35
+2019,10,Patrimoine financier,7722516579.66
+2019,100,Disponibilités et placements à court terme,3338227061.86
+2019,1000,Caisse,1030917.71
+2019,1001,Poste,437294986.21
+2019,1002,Banques,2894031525.03
+2019,1003,Placements à court terme,0.0
+2019,1009,Autres disponibilités,5869632.91
+2019,101,Créances,2569443183.25
+2019,107,Placements financiers à long terme,1154581769.13
+2019,14,Patrimoine administratif,1630021470.75
+2019,140,Immobilisations corporelles du PA,1184579561.61
+2019,142,Immobilisations incorporelles du PA,339343.73
+2019,144,Prêts,318069325.27
+2019,145,"Participations, capital social",9012275.0
+2019,146,Subventions d'investissements,118020965.14
+2019,20,Capitaux de tiers,5853205702.35
+2019,200,Engagements courants,2069853616.36
+2019,201,Engagements financiers à court terme,185254245.02
+2019,206,Engagements financiers à long terme,978189246.8
+2019,2063,Emprunts,975000000.0
+2019,2014,Part à court terme d'engagements à long terme,0.0
+2019,2064,"Prêts, reconnaissances de dettes",2450546.8
+2019,2069,Autres engagements financiers à long terme,738700.0
+2019,209,Engagements financements spéciaux et fonds,26901313.43
+2019,29,Capital propre,3499332348.06
+2019,293,Préfinancements,1181433537.26
+2019,298,Autres capitaux propres,206000000.0
+2019,299,Excédent / découvert (-) du bilan,1911333847.04
+2020,10,Patrimoine financier,8070972623.15
+2020,100,Disponibilités et placements à court terme,3976344090.7
+2020,1000,Caisse,953281.71
+2020,1001,Poste,437216977.25
+2020,1002,Banques,3113006032.03
+2020,1003,Placements à court terme,425000000.0
+2020,1009,Autres disponibilités,167799.71
+2020,101,Créances,2587420917.02
+2020,102,Placements financiers à court terme,300000000.0
+2020,107,Placements financiers à long terme,429336758.98
+2020,14,Patrimoine administratif,1795727511.68
+2020,140,Immobilisations corporelles du PA,1268323241.76
+2020,142,Immobilisations incorporelles du PA,34549692.69
+2020,144,Prêts,309800893.21
+2020,145,"Participations, capital social",9011975.0
+2020,146,Subventions d'investissements,174041709.02
+2020,20,Capitaux de tiers,5908969508.73
+2020,200,Engagements courants,2197053378.59
+2020,201,Engagements financiers à court terme,166081628.0
+2020,206,Engagements financiers à long terme,979226281.5
+2020,2063,Emprunts,975000000.0
+2020,2064,"Prêts, reconnaissances de dettes",1966281.5
+2020,2069,Autres engagements financiers à long terme,2260000.0
+2020,209,Engagements financements spéciaux et fonds,28228213.4
+2020,29,Capital propre,3957730626.1
+2020,293,Préfinancements,1160004563.47
+2020,298,Autres capitaux propres,366000000.0
+2020,299,Excédent / découvert (-) du bilan,2059160241.69
+2021,10,Patrimoine financier,8324109428.89
+2021,100,Disponibilités et placements à court terme,3545200938.57
+2021,1000,Caisse,950388.21
+2021,1001,Poste,298709370.23
+2021,1002,Banques,2944850012.54
+2021,1003,Placements à court terme,300000000.0
+2021,1009,Autres disponibilités,691167.59
+2021,101,Créances,2656549810.11
+2021,102,Placements financiers à court terme,725000000.0
+2021,107,Placements financiers à long terme,428817154.38
+2021,14,Patrimoine administratif,1779006633.3
+2021,140,Immobilisations corporelles du PA,1137829093.06
+2021,142,Immobilisations incorporelles du PA,72175583.01
+2021,144,Prêts,300226085.68
+2021,145,"Participations, capital social",9011975.0
+2021,146,Subventions d'investissements,259763896.55
+2021,20,Capitaux de tiers,5745918622.47
+2021,200,Engagements courants,1657262461.95
+2021,201,Engagements financiers à court terme,449396613.42
+2021,206,Engagements financiers à long terme,703820798.45
+2021,2063,Emprunts,700000000.0
+2021,2014,Part à court terme d'engagements à long terme,275000000.0
+2021,2064,"Prêts, reconnaissances de dettes",1560798.45
+2021,2069,Autres engagements financiers à long terme,2260000.0
+2021,209,Engagements financements spéciaux et fonds,31658683.24
+2021,29,Capital propre,4357197439.72
+2021,293,Préfinancements,1210839827.02
+2021,298,Autres capitaux propres,206000000.0
+2021,299,Excédent / découvert (-) du bilan,2386494110.8
+2022,10,Patrimoine financier,8401924234.4
+2022,100,Disponibilités et placements à court terme,3753147590.53
+2022,1000,Caisse,934972.16
+2022,1001,Poste,317740724.96
+2022,1002,Banques,1644018170.1
+2022,1003,Placements à court terme,1790000000.0
+2022,1009,Autres disponibilités,453723.31
+2022,101,Créances,2622247305.41
+2022,102,Placements financiers à court terme,800000000.0
+2022,107,Placements financiers à long terme,578591654.38
+2022,14,Patrimoine administratif,2014092338.63
+2022,140,Immobilisations corporelles du PA,1538625584.81
+2022,142,Immobilisations incorporelles du PA,100939054.1
+2022,144,Prêts,283335936.88
+2022,145,"Participations, capital social",9011975.0
+2022,146,Subventions d'investissements,339538932.81
+2022,148,Amortissements supplémentaires cumulés,-257359144.97
+2022,20,Capitaux de tiers,5505683944.42
+2022,200,Engagements courants,1562361944.41
+2022,201,Engagements financiers à court terme,187009589.61
+2022,206,Engagements financiers à long terme,703449523.95
+2022,2063,Emprunts,700000000.0
+2022,2014,Part à court terme d'engagements à long terme,0.0
+2022,2064,"Prêts, reconnaissances de dettes",1189523.95
+2022,2069,Autres engagements financiers à long terme,2260000.0
+2022,209,Engagements financements spéciaux et fonds,34450235.43
+2022,29,Capital propre,4910332628.61
+2022,293,Préfinancements,1351458991.85
+2022,298,Autres capitaux propres,456000000.0
+2022,299,Excédent / découvert (-) du bilan,2490752912.17
+2023,10,Patrimoine financier,8234859381.24
+2023,100,Disponibilités et placements à court terme,3623746480.11
+2023,1000,Caisse,887141.05
+2023,1001,Poste,480824591.16
+2023,1002,Banques,731508171.98
+2023,1003,Placements à court terme,2410000000.0
+2023,1009,Autres disponibilités,526575.92
+2023,101,Créances,2805780173.44
+2023,102,Placements financiers à court terme,1050000000.0
+2023,107,Placements financiers à long terme,178933484.01
+2023,14,Patrimoine administratif,2377290189.8
+2023,140,Immobilisations corporelles du PA,1781647446.68
+2023,142,Immobilisations incorporelles du PA,120292951.79
+2023,144,Prêts,263105218.32
+2023,145,"Participations, capital social",9011975.0
+2023,146,Subventions d'investissements,430763192.83
+2023,148,Amortissements supplémentaires cumulés,-227530594.82
+2023,20,Capitaux de tiers,5728365533.27
+2023,200,Engagements courants,1741038056.44
+2023,201,Engagements financiers à court terme,408916561.91
+2023,206,Engagements financiers à long terme,503129106.4
+2023,2063,Emprunts,500000000.0
+2023,2014,Part à court terme d'engagements à long terme,200000000.0
+2023,2064,"Prêts, reconnaissances de dettes",869106.4
+2023,2069,Autres engagements financiers à long terme,2260000.0
+2023,209,Engagements financements spéciaux et fonds,37498835.11
+2023,29,Capital propre,4883784037.77
+2023,293,Préfinancements,1249088929.02
+2023,298,Autres capitaux propres,551000000.0
+2023,299,Excédent / découvert (-) du bilan,2491683546.09
+2024,10,Patrimoine financier,7503148468.77
+2024,100,Disponibilités et placements à court terme,2854026642.46
+2024,1000,Caisse,908033.32
+2024,1001,Poste,398000110.98
+2024,1002,Banques,604409212.72
+2024,1003,Placements à court terme,1850000000.0
+2024,1009,Autres disponibilités,709285.44
+2024,101,Créances,2942188780.22
+2024,102,Placements financiers à court terme,800000000.0
+2024,107,Placements financiers à long terme,179290768.2
+2024,14,Patrimoine administratif,2548837963.14
+2024,140,Immobilisations corporelles du PA,1863616682.74
+2024,142,Immobilisations incorporelles du PA,131488444.17
+2024,144,Prêts,260028156.46
+2024,145,"Participations, capital social",9011975.0
+2024,146,Subventions d'investissements,485089287.34
+2024,148,Amortissements supplémentaires cumulés,-200396582.57
+2024,20,Capitaux de tiers,5524514546.65
+2024,200,Engagements courants,3827459694.61
+2024,201,Engagements financiers à court terme,471997205.11
+2024,206,Engagements financiers à long terme,500895195.6
+2024,2063,Emprunts,500000000.0
+2024,2014,Part à court terme d'engagements à long terme,0.0
+2024,2064,"Prêts, reconnaissances de dettes",635195.6
+2024,2069,Autres engagements financiers à long terme,260000.0
+2024,209,Engagements financements spéciaux et fonds,38374732.31
+2024,29,Capital propre,4527471885.26
+2024,293,Préfinancements,1191961479.67
+2024,298,Autres capitaux propres,551000000.0
+2024,299,Excédent / découvert (-) du bilan,2228700752.91
+2025,10,Patrimoine financier,7220116754.53
+2025,100,Disponibilités et placements à court terme,2592600631.78
+2025,1000,Caisse,878505.84
+2025,1001,Poste,116394893.57
+2025,1002,Banques,840086662.55
+2025,1003,Placements à court terme,1635000000.0
+2025,1009,Autres disponibilités,240569.82
+2025,101,Créances,3071197843.32
+2025,102,Placements financiers à court terme,600000000.0
+2025,107,Placements financiers à long terme,179160551.28
+2025,14,Patrimoine administratif,2859407994.73
+2025,140,Immobilisations corporelles du PA,2032552508.43
+2025,142,Immobilisations incorporelles du PA,152531800.63
+2025,144,Prêts,256234898.23
+2025,145,"Participations, capital social",9011975.0
+2025,146,Subventions d'investissements,587486480.63
+2025,148,Amortissements supplémentaires cumulés,-178409668.19
+2025,20,Capitaux de tiers,5685091890.36
+2025,200,Engagements courants,4005980351.33
+2025,201,Engagements financiers à court terme,472304837.32
+2025,206,Engagements financiers à long terme,500392715.6
+2025,2063,Emprunts,500000000.0
+2025,2064,"Prêts, reconnaissances de dettes",392715.6
+2025,2069,Autres engagements financiers à long terme,0.0
+2025,209,Engagements financements spéciaux et fonds,62340920.8
+2025,29,Capital propre,4394432858.9
+2025,293,Préfinancements,0.0
+2025,298,Autres capitaux propres,1742961479.67
+2025,299,Excédent / découvert (-) du bilan,2099091538.02

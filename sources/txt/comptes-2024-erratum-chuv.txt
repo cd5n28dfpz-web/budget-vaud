@@ -1,0 +1,86 @@
+                                                  ERRATUM POUR INFORMATION
+
+
+
+Comptes 2024 du CHUV (pages 347 à 352 de la brochure des comptes de l’Etat)
+
+Une erreur de comptabilisation, ayant un impact sur les comptes 2024 du CHUV, a été
+identifiée postérieurement à l’audit du réviseur des comptes et du Contrôle cantonal des
+finances et à l’impression de la présente brochure. Cet Erratum a pour but d’apporter le
+correctif nécessaire.
+
+L’erreur consiste en la comptabilisation à double d’une prestation d’intérêt général obtenue en
+fin d’année, en lien avec la reprise par le CHUV de la centrale d’appel 144 mais également
+maintenue dans les transitoires. Il en résulte une surestimation des revenus, et donc du
+résultat, de CHF 3'170’150.-. Selon les normes du réviseur des comptes, elle se situe au-
+dessous du seuil de matérialité, ce qui contribue à expliquer qu’elle n’a pas été détectée lors
+de l’audit des comptes annuels.
+
+Contrairement à ce qui est indiqué aux pages 347 à 352 de la présente brochure le résultat
+net de l’exercice correct est donc de CHF 4'607'711.55.
+
+Il s’agit enfin de préciser que cette erreur ne modifie pas les comptes 2024 de l’Etat. Cette
+erreur concerne en effet uniquement les comptes du CHUV, puisque le versement de la
+prestation d’intérêt général a été correctement comptabilisée dans les comptes de l’Etat.
+
+La correction de cette erreur impacte les éléments suivants de la présente brochure :
+
+En page 347, au bilan :
+                                                                                                                            Avant              Après
+      Actifs circulants                                                                                            386'011'361.37     382'841'211.37
+104   Actifs de régularisations                                                                                     38'019'896.07      34'849'746.07
+      Total de l'ACTIF                                                                                             576'521'224.68     573'351'074.68
+
+      Capital propre, fonds de réserve et d'innovation au 31 décembre                                              110'767'271.13     107'597'121.13
+      Résultat de l'exercice, excédent revenus (+) / excédent de charges (-)                                         7'777'861.55       4'607'711.55
+      Total du PASSIF                                                                                              576'521'224.68     573'351'074.68
+
+
+
+En page 348, aux comptes de résultat :
+                                                                                                                             Avant              Après
+46    Revenus de transferts....................................................................................     498'262'976.87     495'092'826.87
+4       Revenus d’exploitation totaux..................................................................           2'101'733'004.14   2'098'562'854.14
+
+      Résultat provenant des activités d’exploitation
+      Excédent de revenus......................................................................................      4'023'960.91         853'810.91
+
+      Résultat opérationnel
+      Excédent de revenus......................................................................................      7'204'457.41       4'034'307.41
+
+      Résultat de l'exercice
+      Excédent de revenus......................................................................................      7'777'861.55       4'607'711.55
+En page 349 et 351, aux comptes de résultat détaillés :                                                      Avant              Après
+
+4631 Subventions des cantons et des concordats.................................................     498'262'976.87     495'092'826.87
+     Total des revenus d'exploitation...........................................................   2'101'733'004.14   2'098'562'854.14
+
+        RESULTAT D'EXPLOITATION, (+) revenus / (-) charges.......................                     4'023'960.91         853'810.91
+
+        RESULTAT OPERATIONNEL, (+) revenus / (-) charges.........................                     7'204'457.41       4'034'307.41
+
+        RESULTAT DE L'EXERCICE, (+) revenus / (-) charges...........................                  7'777'861.55       4'607'711.55
+
+
+
+En page 350 et 352, dans les commentaires des comptes détaillés :
+
+Le résultat d'exploitation MCH2 du CHUV présente un excédent de revenus de CHF 853'810.91 contre un excédent de
+revenus de CHF 2'347'543.70 en 2023.
+
+Cette amélioration s'explique par une augmentation des charges d'exploitation de CHF 85.1 mios (+4.2%) et une augmentation
+des revenus d'exploitation de CHF 83.6 mios (+4.2%).
+
+La variation des revenus s'explique par :
+ - la hausse des subventions de l'Etat (+9.0%) [4631], en raison de hausses des subventions PIG aux investissements
+   et à l'exploitation (reprise CASU 144 & Urgences Unisanté, activités académiques) ainsi que le financement
+   des indexations salariales ;
+
+Au final, le compte de résultat MCH2 du CHUV présente en 2024 un excédent de revenus de CHF 4'607'711.55 francs contre
+un excédent de charges de CHF 3'416'312.48 francs en 2023.
+
+
+
+
+CHUV, 15.05.2025
+

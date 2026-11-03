@@ -114,3 +114,16 @@ Le 7 octobre 2026, le Conseil d'État a publié 59 amendements à son projet de 
 - **Rattachement.** Chaque amendement est rapproché de la ligne du projet portant le même service et la même rubrique ; `budget_2027_amende` cumule les amendements propres à une même ligne. Deux cas ne sont pas rattachés : les mesures transversales imputées à la Chancellerie (service 050), qui portent sur toute l'administration et dépassent parfois le montant de la ligne de la Chancellerie, et l'ajustement du financement du CHUV (service 038), qui n'a pas de service distinct dans les brochures.
 - **Catégories.** `effet de l'initiative` (impôts sur le revenu et la fortune), `mesure départementale`, `mesure transversale` (libellé commençant par « Mesure transversale »), `part BNS supplémentaire` et `prélèvement sur les capitaux propres`, ces deux dernières reprises de la colonne « Recettes fiscales, BNS et revenus extraordinaires » de l'annexe.
 
+
+
+## Dette, bilan et investissements réalisés (onglet « Dette et comptes »)
+
+Source : brochures des comptes 2018 à 2025 (`sources/txt/comptes-AAAA.txt`, texte extrait des PDF). Script : `pipeline/dette.py`.
+
+- **Évolution de la dette** : tableau de la brochure 2025 (2017-2025). Le total des emprunts du tableau est confronté au compte 2063 du bilan, ou à 2063 + 2014 (part à court terme) quand un emprunt arrive à échéance l'année suivante.
+- **Bilan** : premier bilan de chaque brochure (Etat de Vaud, hors institutions). Contrôles : actif = passif, excédent du bilan = fortune nette publiée, colonne N-1 comparée à la brochure précédente (avertissement seulement : certains postes sont retraités).
+- **Flux de trésorerie** : FTO + FTI+P + FTF = variation des liquidités, et variation des liquidités = variation caisse + poste + banques du bilan.
+- **Objets d'investissement** : tableau « Dépenses et recettes d'investissements de l'exercice ». Les colonnes ne sont pas séparées dans le texte ; elles sont rétablies par l'identité dépenses − recettes = dépenses nettes et par la position des montants. Contrôle bloquant : la somme des objets égale chaque total de département, le total publié et le tableau des flux.
+- **Écart publié** : en 2021, le tableau des flux (384 869 191.26) et le total des dépenses d'investissement (384 865 791.26) diffèrent de 3 400 francs dans les comptes eux-mêmes.
+- **Erratum CHUV 2024** : il corrige les comptes du CHUV (pages 347 à 352 de la brochure 2024) et précise qu'il ne modifie pas ceux de l'Etat. Les données de la dette ne sont donc pas concernées.
+- **Neutralité** : aucun emprunt n'est rattaché à un objet d'investissement ; les comptes ne le permettent pas.
