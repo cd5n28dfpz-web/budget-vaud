@@ -487,7 +487,7 @@ table.mini tr[data-i]{cursor:pointer} table.mini tr[data-i]:hover{background:var
     </div>
     <div class="cols2 sec">
       <div class="card"><div class="sec-h"><h2>Économies par département</h2><p>Réduction nette, en millions</p></div><div class="hbars" id="savDept"></div></div>
-      <div class="card"><div class="sec-h"><h2>Principales mesures d'économie</h2><p>Hors « pérennisation des mesures LAFin »</p></div><ul class="plain" id="savList"></ul></div>
+      <div class="card"><div class="sec-h"><h2>Principales mesures d'économie du budget 2026</h2><p>Hors « pérennisation des mesures LAFin ». Mesures détaillées dans la brochure 2026 uniquement</p></div><ul class="plain" id="savList"></ul></div>
     </div>
     <div class="sec"><div class="sec-h"><h2>Suivi des objets d'investissement</h2><p>Chaque objet d'un budget à l'autre</p></div>
       <div class="kpis" id="ivKpi"></div>
@@ -706,7 +706,7 @@ function lineDetail(l){
   <div class="cmt"><h4>Toute la série, ${YRLAB}</h4>${seriesChart(l.v,{label:l.label})}${chartLegend()}</div>
   <div class="cmt"><table>${ORDER.map(sr=>`<tr><td>${SLAB[sr]}${PROJ[sr]?" (projet)":""}</td><td class="r">${chf(l.v[SI[sr]])}</td></tr>`).join("")}</table></div>`;
   if(l.jx.length)h+=`<div class="callout"><b>Sauts à vérifier :</b> ${l.jx.map(j=>`${j[1]} en ${SLAB[j[0]].toLowerCase()}`).join(", ")}. Ce type de saut vient souvent d'une réorganisation (montant déplacé vers une autre rubrique ou un autre service) ou d'une écriture comptable, plutôt que d'une décision politique.</div>`;
-  if(l.sav)h+=`<div class="callout">Le budget ${D.savYears.join(', ')} intègre sur cette ligne une <b>mesure d'économie de ${chf(l.sav)}</b>.</div>`;
+  if(l.sav)h+=`<div class="callout">Le budget ${D.savYears.join(', ')} (brochure ${D.savYears.join(', ')}) intégrait sur cette ligne une <b>mesure d'économie de ${chf(l.sav)}</b>.</div>`;
   if(l.ex)h+=`<div class="callout">Opération extraordinaire : prélèvement ou attribution sur la fortune de l'État. Elle n'entre pas dans le résultat opérationnel.</div>`;
   if(l.cm)l.cm.forEach(([yr,items,text])=>{h+=`<div class="cmt"><h4>Commentaire de la brochure ${yr}</h4>`;
     if(items.length)h+=`<table><tr><td></td><td class="r"><b>${yr}</b></td><td class="r"><b>${yr-1}</b></td></tr>`+items.map(x=>`<tr><td>${esc(x[0])}</td><td class="r">${grp(x[1])}</td><td class="r">${grp(x[2])}</td></tr>`).join("")+`</table>`;
@@ -1318,7 +1318,7 @@ function renderSvc(code){
    <p class="note">${ls.filter(l=>l.t==="C").length} lignes de charges et ${ls.filter(l=>l.t==="R").length} lignes de revenus. <button class="btn" id="svAll" style="margin-left:6px">Voir toutes les lignes</button></p></div>
   <div class="cols2 sec">
    <div class="card"><div class="sec-h"><h2>Investissements ${yr}</h2><p>${cur[0]==="B"&&inv.length?inv.length+" objets · "+short(inv.reduce((a,x)=>a+x[6],0))+" nets":""}</p></div>${cur[0]!=="B"?'<p class="note">Le budget d\'investissement n\'est disponible que pour les années budgétaires.</p>':inv.length?'<ul class="plain">'+inv.slice(0,10).map(x=>`<li><span>${esc(x[2])}<span class="code" style="display:block">${x[1]} · décret ${esc(x[3])}</span></span><span>${short(x[6])}</span></li>`).join("")+"</ul>"+(inv.length>10?`<p class="note">et ${inv.length-10} autres objets.</p>`:""):'<p class="note">Aucun investissement pour ce service.</p>'}</div>
-   <div class="card"><div class="sec-h"><h2>Mesures d'économie ${D.savYears.join(', ')}</h2><p>${meas.length?short(meas.reduce((a,m)=>a+m[1],0))+" au total":""}</p></div>${meas.length?'<ul class="plain">'+meas.map(m=>`<li><span>${esc(m[0])}</span><span>${short(m[1])}</span></li>`).join("")+"</ul>":'<p class="note">Aucune mesure listée pour ce service.</p>'}</div>
+   <div class="card"><div class="sec-h"><h2>Mesures d'économie du budget ${D.savYears.join(', ')}</h2><p>${meas.length?short(meas.reduce((a,m)=>a+m[1],0))+" au total":""}${D.savYears.indexOf(yr)<0?" · déjà incluses dans le budget "+D.savYears.join(', ')+", non reprises dans la brochure "+yr:""}</p></div>${meas.length?'<ul class="plain">'+meas.map(m=>`<li><span>${esc(m[0])}</span><span>${short(m[1])}</span></li>`).join("")+"</ul>":'<p class="note">Aucune mesure listée pour ce service.</p>'}</div>
   </div>`;
   const am=AM.filter(a=>a.service===code&&a.categorie.startsWith("mesure"));
   if(am.length)h+=`<div class="sec"><div class="sec-h"><h2>Amendements 2027 proposés</h2><p>${short(am.reduce((t,a)=>t+a.mesure,0))} au total · proposés par le Conseil d'État le ${amFr(D.amend.date)}, avant le vote du Grand Conseil</p></div>
